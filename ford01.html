@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--
+			Author: Bjorn Debooserie
+		-->
+		<meta charset="UTF-8" />
+		<meta name="author" content="Bjorn" />
+		<meta name="description" content="Bjorn's Used Cars" />
+		<meta name="keywords" content="Bjorn, Used, Cars" />
+      
+		<title>Bjorn's Used Cars</title>
+     
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+		
+		<script type = "text/javascript">
+			// This function makes a cookie when pressing the "Add to Cart" button and prints out a thank you note to the customer
+			function addItem ()
+			{		
+				document.cookie = "Ranger=" + encodeURIComponent("9500");
+
+				document.writeln("<p style=\"color: #ff3300; font-size: 3em; text-align: center;\">Thank you for ordering the Ford Ranger!</p>");
+				document.writeln("<p style=\"color: blue; font-size: 18pt; font-weight: bold; text-align: center;\">You may either continue shopping or go to checkout.</p>");
+				document.writeln("<table width=\"50%\"><tr><td><a href=\"index.html\">Continue Shopping</a></td><td><a href=\"checkout.html\">Go to Checkout</a></td></tr></table>");
+				return false;     
+			}
+		</script>		
+	</head>
+	
+	<body>
+	
+		<header>
+			<a href="index.html"><img src="images/header.png" alt="Bjorn's Used Cars"></a>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="dodge.html">Dodge</a></li>
+				<li><a href="ford.html">Ford</a></li>
+				<li><a href="honda.html">Honda</a></li>
+				<li><a href="nissan.html">Nissan</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+				<li><a href="checkout.html">Check Out</a></li>
+			</ul>
+		</nav>
+
+		<section>			
+			<div>
+				<img class="solid centeredImage" src="images/ford/ford001.jpg" alt="2002 Ford Ranger"></a>
+				<h2>2002 Ford Ranger</h2>
+				<p class="item">This 2002 Ford Ranger Edge is in fine condition! It is both mechanically and electronically sound with no problems to report. Both the engine and transmission are in smooth running condition. The extra clean exterior is also in great condition with no signs of wear and tear. The interior is in good condition as well with no worn, torn or broken knobs or upholstery. Also, there are no offensive odors present inside the vehicle. Year: 2002, Trim: Edge Short Bed 4WD, Engine: 6-Cylinder 3.0L V6 OHV 12V Trans: 5 Speed Automatic, Color: Bright Red, Interior: Dark Graphite, Miles: 87751</p>
+				<p class="price">$9,500.00</p>
+				<button type="button" id="center" class="cartpic" onclick="addItem ()"></button><br/>
+				<a href="index.html"><p id="center">Continue Shopping!</p></a>
+			</div>		
+		</section>
+
+		<footer>
+		</footer>
+
+	</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--
+			Author: Bjorn Debooserie
+		-->
+		<meta charset="UTF-8" />
+		<meta name="author" content="Bjorn" />
+		<meta name="description" content="Bjorn's Used Cars" />
+		<meta name="keywords" content="Bjorn, Used, Cars" />
+      
+		<title>Bjorn's Used Cars</title>
+     
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+		
+		<script type = "text/javascript">
+			// This function makes a cookie when pressing the "Add to Cart" button and prints out a thank you note to the customer
+			function addItem ()
+			{		
+				document.cookie = "Charger=" + encodeURIComponent("9988");
+
+				document.writeln("<p style=\"color: #ff3300; font-size: 3em; text-align: center;\">Thank you for ordering the Dodge Charger!</p>");
+				document.writeln("<p style=\"color: blue; font-size: 18pt; font-weight: bold; text-align: center;\">You may either continue shopping or go to checkout.</p>");
+				document.writeln("<table width=\"50%\"><tr><td><a href=\"index.html\">Continue Shopping</a></td><td><a href=\"checkout.html\">Go to Checkout</a></td></tr></table>");
+				return false;     
+			}
+		</script>		
+	</head>
+	
+	<body>
+	
+		<header>
+			<a href="index.html"><img src="images/header.png" alt="Bjorn's Used Cars"></a>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="dodge.html">Dodge</a></li>
+				<li><a href="ford.html">Ford</a></li>
+				<li><a href="honda.html">Honda</a></li>
+				<li><a href="nissan.html">Nissan</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+				<li><a href="checkout.html">Check Out</a></li>
+			</ul>
+		</nav>
+
+		<section>			
+			<div>
+				<img class="solid centeredImage" src="images/dodge/dodge003.jpg" alt="2007 Dodge Charger"></a>
+				<h2>2007 Dodge Charger</h2>
+				<p class="item">This silver/blue 2007 Dodge Charger 4 wheel disc brakes, AM/FM radio, Air conditioning, Bumpers: body-color, CD player, Delay-off headlights, Driver door bin, Dual front impact airbags, Front beverage holders, Front bucket seats, Front center armrest, Front reading lights, Ignition disable, Illuminated entry, Occupant sensing airbag, Outside temperature display, Overhead console, Panic alarm, Passenger door bin, Passenger vanity mirror, Power door mirrors, Power windows, Rear bench seats, Rear door bins, Rear reading lights, Rear window defroster, Remote keyless entry, Speakers: 4, Speed control, Speed sensitive wipers, Tachometer, Telescoping steering wheel, Tilt steering wheel, Variably intermittent wipers. Body Style: Sedan, Year: 2007, Mileage: 104,457, Engine: V6, Drivetrain: RWD - Rear Wheel Drive</p>
+				<p class="price">$9,988.00</p>
+				<button type="button" id="center" class="cartpic" onclick="addItem ()"></button><br/>
+				<a href="index.html"><p id="center">Continue Shopping!</p></a>
+			</div>		
+		</section>
+
+		<footer>
+		</footer>
+
+	</body>
+
+</html>

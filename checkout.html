@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--
+			Author: Bjorn Debooserie
+		-->
+		<meta charset="UTF-8" />
+		<meta name="author" content="Bjorn" />
+		<meta name="description" content="Bjorn's Used Cars" />
+		<meta name="keywords" content="Bjorn, Used, Cars" />
+      
+		<title>Bjorn's Used Cars</title>
+     
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+		
+		<script type = "text/javascript">
+		function validate()
+			{			
+			// validates if first name is blank
+			if (document.forms[0].name_first.value == "")
+				{
+				alert (document.forms[0].name_first.name + " CANNOT be left blank!");
+				document.forms[0].name_first.focus()
+				document.forms[0].name_first.select();
+				return false;
+				}
+			
+			// validates if first name has numbers or spaces		
+			for (var i = 0; i < document.forms[0].name_first.value.length; i++)
+				{
+				var val = document.forms[0].name_first.value.charAt (i);
+			
+				if (( val < 'A') || (val > 'z') || (val == ' '))
+					{
+					alert (document.forms[0].name_first.name + " CANNOT contain any spaces/integers!");
+					document.forms[0].name_first.focus();
+					document.forms[0].name_first.select();
+					return false;
+					}
+				}
+			
+			// validates if last name is blank			
+			if (document.forms[0].name_last.value == "")
+				{
+				alert (document.forms[0].name_last.name + " CANNOT be left blank!");
+				document.forms[0].name_last.focus()
+				document.forms[0].name_last.select();
+				return false;
+				}
+			
+			// validates if last name has numbers or spaces
+			for (var i = 0; i < document.forms[0].name_last.value.length; i++)
+				{
+				var val = document.forms[0].name_last.value.charAt (i);
+			
+				if (( val < 'A') || (val > 'z') || (val == ' '))
+					{
+					alert (document.forms[0].name_last.name + " CANNOT contain any spaces or numbers!");
+					document.forms[0].name_last.focus();
+					document.forms[0].name_last.select();
+					return false;
+					}					
+				}
+			
+			// validates if address line 1 is blank
+			if (document.forms[0].address1.value == "")
+				{
+				alert (document.forms[0].address1.name + " CANNOT be left blank!");
+				document.forms[0].address1.focus()
+				document.forms[0].address1.select();
+				return false;
+				}
+				
+			if (!parseInt (document.forms[0].address1.value.charAt (0)))
+				{
+				  window.alert ("Address must start with a digit!");
+				  document.forms[0].address1.focus();
+				  document.forms[0].address1.select(); 
+				  return false;
+				}
+			
+			// validates if city is blank			
+			if (document.forms[0].city.value == "")
+				{
+				alert (document.forms[0].city.name + " CANNOT be left blank!");
+				document.forms[0].city.focus()
+				document.forms[0].city.select();
+				return false;
+				}		
+			
+			// validates if state is blank			
+			if (document.forms[0].state.value == "")
+				{
+				alert (document.forms[0].state.name + " CANNOT be left blank!");
+				document.forms[0].state.focus()
+				document.forms[0].state.select();
+				return false;
+				}
+			
+			// validates if state has more or less than two letters
+			if (document.forms[0].state.value.length != 2)
+				{
+				alert (document.forms[0].state.name + " can be two letters only!");
+				document.forms[0].state.focus()
+				document.forms[0].state.select();
+				return false;
+				}
+			
+			// validates if state has characters other than letters
+			for (var i = 0; i < document.forms[0].state.value.length; i++)
+				{
+				var val = document.forms[0].state.value.charAt (i);
+
+				if (( val < 'A') || (val > 'z') || (val == ""))
+					{
+					alert (document.forms[0].state.name + " must be letters only!");
+					document.forms[0].state.focus();
+					document.forms[0].nstate.select(); 
+					return false;
+					}
+				}	
+			
+			// validates if zip is blank			
+			if (document.forms[0].zip.value == "")
+				{
+				alert (document.forms[0].zip.name + " CANNOT be left blank!");
+				document.forms[0].zip.focus()
+				document.forms[0].zip.select();
+				return false;
+				}	
+
+			// validates if zip are all digits	
+			var test = true;
+			var numberDigits = 0;
+			for (var i = 0; i < document.forms[0].zip.value.length; i++)
+				{
+				var val = document.forms[0].zip.value.charAt (i);
+				if (isNaN (val))
+					{
+					test = false;
+					}
+				else
+					{
+					numberDigits += 1;
+					}		
+				if (!test)
+					{
+				   alert (document.forms[0].zip.name + " must be digits only!");
+				   document.forms[0].zip.focus();
+				   document.forms[0].zip.select(); 
+				   return false;
+					}
+				}	
+					
+			if ((document.forms[0].zip.value.length > 9) || (document.forms[0].zip.value.length < 5))
+				{
+				alert (document.forms[0].zip.name + " has to be 5-9 digits");
+				document.forms[0].zip.focus()
+				document.forms[0].zip.select();
+				return false;
+				}	
+				
+			// validates if country is blank
+			// NO VALIDATION NECCESARILY (SELECT)
+
+			// validates if phone number is blank			
+			if (document.forms[0].phone.value == "")
+				{
+				alert (document.forms[0].phone.name + " CANNOT be left blank!");
+				document.forms[0].phone.focus()
+				document.forms[0].phone.select();
+				return false;
+				}	
+			
+			// validates the phone number for length between 10-14 digits
+			if ((document.forms[0].phone.value.length < 10) || (document.forms[0].phone.value.length > 14))
+				{
+				alert (document.forms[0].phone.name + " has to be 10-14 digits!");
+				document.forms[0].phone.focus()
+				document.forms[0].phone.select();
+				return false;
+				}	
+				
+			// validates if phone are all digits with "-" or "(" or ")" 	
+			var testTwo = true;
+			var phoneDigits = 0;
+			for (var i = 0; i < document.forms[0].phone.value.length; i++)
+				{
+				var val = document.forms[0].phone.value.charAt (i);		
+				if ((isNaN (val)) && (val != "-") && (val != "(") && (val != ")")) // EXTRA CREDIT!
+					{
+					testTwo = false;
+					}
+				else
+					{
+					phoneDigits += 1;
+					}
+				if (!testTwo)
+					{
+					alert (document.forms[0].phone.name + " must be digits only!");
+					document.forms[0].phone.focus();
+					document.forms[0].phone.select(); 
+					return false;
+					}
+				}
+				
+			// validates the credit card number for digits
+			var testThree = true;
+			var ccnumberDigits = 0;
+
+			for (var i = 0; i < document.forms[0].ccnumber.value.length; i++)
+				{
+				var val = document.forms[0].ccnumber.value.charAt (i);
+				if (isNaN (val))
+					{
+					testThree = false;
+					}
+				else
+					{
+					ccnumberDigits += 1;
+					}
+				if (!testThree)
+					{
+					alert (document.forms[0].ccnumber.name + " must be digits only!");
+					document.forms[0].ccnumber.focus();
+					document.forms[0].ccnumber.select(); 
+					return false;
+					}
+				}
+			
+			// validates the credit card number 16 digits
+			if (document.forms[0].ccnumber.value.length != 16)
+				{
+				alert (document.forms[0].ccnumber.name + " has to be 16 digits!");
+				document.forms[0].ccnumber.focus()
+				document.forms[0].ccnumber.select();
+				return false;
+				}
+
+			// validates the credit card number for spaces		
+			for (var i = 0; i < document.forms[0].ccnumber.value.length; i++)
+				{
+				var val = document.forms[0].ccnumber.value.charAt (i);
+			
+				if (val == ' ')
+					{
+					alert (document.forms[0].ccnumber.name + " CANNOT contain any spacing!");
+					document.forms[0].ccnumber.focus();
+					document.forms[0].ccnumber.select();
+					return false;
+					}
+				}		
+			
+			// validates credit card choices
+			if ((document.forms[0].visa.checked == false) && (document.forms[0].americanexpress.checked == false) && (document.forms[0].mastercard.checked == false)  && (document.forms[0].discover.checked == false))
+				{
+				alert ("You must choose one credit card option.");
+				return false;
+				}
+			}
+				
+		function reviewCart()
+			{
+			// import stylesheet in javascript
+			document.write ( "<link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\" />");
+			
+			// global variable
+			var total = 0;
+			
+			// decoding of cookie
+			var cookieString = decodeURIComponent (document.cookie);
+			
+			// splitting of cookie with ;
+			var cookieArray = cookieString.split (";");	
+			
+			// splitting of cookie name and cookie value and putting it in a table
+			document.writeln ("<div><p class=\"tabletitle\">Here is your order:</p>");
+			document.writeln ("<table>");
+			document.writeln( "<thead><th>Item</th>" + "<th>Price</th></thead><tbody>" );
+			// calling all cookies out of the array
+			for ( var i = 0; i < cookieArray.length; i++ )
+				{				
+				var cookieValue = cookieArray [i].split ("=");
+				document.writeln( "<tr><td class=\"td_dynamic\">" + cookieValue [0] + "</td><td class=\"td_dynamic\">$" + cookieValue [1] + "</td></tr>" );
+				
+				total = total + parseFloat(cookieValue [1]);
+				}
+			document.writeln ( "<tr><td>Grand Total</td><td>$" + total + "</td></tr>" ); 
+			document.writeln( "</tbody></table>" );	
+			
+			// I messed this link up on my online submission :( I wrote "Continue Shopping".
+			document.writeln("<a href=\"index.html\">Return to Checkout</a></div>");
+			}
+		</script>
+				
+	</head>
+	
+	<body>
+	
+		<header>
+			<a href="index.html"><img src="images/header.png" alt="Bjorn's Used Cars"></a>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="dodge.html">Dodge</a></li>
+				<li><a href="ford.html">Ford</a></li>
+				<li><a href="honda.html">Honda</a></li>
+				<li><a href="nissan.html">Nissan</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+				<li><a href="checkout.html">Check Out</a></li>
+			</ul>
+		</nav>
+		
+		<section>
+			<div>
+				<form id="order" name="order" action="http://localhost:8090/cgi-bin/purchaseCars.cgi" method="post">
+					
+					<fieldset id="customerinfo">
+						<legend>Customer Information / Details</legend>
+						
+						<label for="name_first">First Name</label>
+						<input name="name_first" id="name_first" placeholder="First Name" size="40" />
+						
+						<label for="name_last">Last Name</label>
+						<input name="name_last" id="name_last" placeholder="Last Name" size="40" />
+						
+						<label for="email">E-mail</label>
+						<input name="E-mail" id="email" type="email" size="40" />	
+						
+						<label for="address1">Address</label>
+						<input name="address1" id="address1" size="40"/>
+						<label for="address2"></label>
+						<input name="address2" id="address2" size="40"/>
+						
+						<label for="city">City</label>
+						<input name="city" id="city" size="20" />
+						
+						<label for="state">State</label>
+						<input name="state" id="state" size="10" />
+						
+						<label for="zip" id="zip">Zip Code</label>
+						<input name="zip" id="zip" size="10" id="zip" />
+						
+						<label for="country">Country</label>
+						<select name="Country" id="country" >
+							<option value="AF">Afghanistan</option>
+							<option value="AL">Albania</option>
+							<option value="DZ">Algeria</option>
+							<option value="AS">American Samoa</option>
+							<option value="AD">Andorra</option>
+							<option value="AG">Angola</option>
+							<option value="AI">Anguilla</option>
+							<option value="AG">Antigua &amp; Barbuda</option>
+							<option value="AR">Argentina</option>
+							<option value="AA">Armenia</option>
+							<option value="AW">Aruba</option>
+							<option value="AU">Australia</option>
+							<option value="AT">Austria</option>
+							<option value="AZ">Azerbaijan</option>
+							<option value="BS">Bahamas</option>
+							<option value="BH">Bahrain</option>
+							<option value="BD">Bangladesh</option>
+							<option value="BB">Barbados</option>
+							<option value="BY">Belarus</option>
+							<option value="BE">Belgium</option>
+							<option value="BZ">Belize</option>
+							<option value="BJ">Benin</option>
+							<option value="BM">Bermuda</option>
+							<option value="BT">Bhutan</option>
+							<option value="BO">Bolivia</option>
+							<option value="BL">Bonaire</option>
+							<option value="BA">Bosnia &amp; Herzegovina</option>
+							<option value="BW">Botswana</option>
+							<option value="BR">Brazil</option>
+							<option value="BC">British Indian Ocean Ter</option>
+							<option value="BN">Brunei</option>
+							<option value="BG">Bulgaria</option>
+							<option value="BF">Burkina Faso</option>
+							<option value="BI">Burundi</option>
+							<option value="KH">Cambodia</option>
+							<option value="CM">Cameroon</option>
+							<option value="CA">Canada</option>
+							<option value="IC">Canary Islands</option>
+							<option value="CV">Cape Verde</option>
+							<option value="KY">Cayman Islands</option>
+							<option value="CF">Central African Republic</option>
+							<option value="TD">Chad</option>
+							<option value="CD">Channel Islands</option>
+							<option value="CL">Chile</option>
+							<option value="CN">China</option>
+							<option value="CI">Christmas Island</option>
+							<option value="CS">Cocos Island</option>
+							<option value="CO">Colombia</option>
+							<option value="CC">Comoros</option>
+							<option value="CG">Congo</option>
+							<option value="CK">Cook Islands</option>
+							<option value="CR">Costa Rica</option>
+							<option value="CT">Cote D'Ivoire</option>
+							<option value="HR">Croatia</option>
+							<option value="CU">Cuba</option>
+							<option value="CB">Curacao</option>
+							<option value="CY">Cyprus</option>
+							<option value="CZ">Czech Republic</option>
+							<option value="DK">Denmark</option>
+							<option value="DJ">Djibouti</option>
+							<option value="DM">Dominica</option>
+							<option value="DO">Dominican Republic</option>
+							<option value="TM">East Timor</option>
+							<option value="EC">Ecuador</option>
+							<option value="EG">Egypt</option>
+							<option value="SV">El Salvador</option>
+							<option value="GQ">Equatorial Guinea</option>
+							<option value="ER">Eritrea</option>
+							<option value="EE">Estonia</option>
+							<option value="ET">Ethiopia</option>
+							<option value="FA">Falkland Islands</option>
+							<option value="FO">Faroe Islands</option>
+							<option value="FJ">Fiji</option>
+							<option value="FI">Finland</option>
+							<option value="FR">France</option>
+							<option value="GF">French Guiana</option>
+							<option value="PF">French Polynesia</option>
+							<option value="FS">French Southern Ter</option>
+							<option value="GA">Gabon</option>
+							<option value="GM">Gambia</option>
+							<option value="GE">Georgia</option>
+							<option value="DE">Germany</option>
+							<option value="GH">Ghana</option>
+							<option value="GI">Gibraltar</option>
+							<option value="GB">Great Britain</option>
+							<option value="GR">Greece</option>
+							<option value="GL">Greenland</option>
+							<option value="GD">Grenada</option>
+							<option value="GP">Guadeloupe</option>
+							<option value="GU">Guam</option>
+							<option value="GT">Guatemala</option>
+							<option value="GN">Guinea</option>
+							<option value="GY">Guyana</option>
+							<option value="HT">Haiti</option>
+							<option value="HW">Hawaii</option>
+							<option value="HN">Honduras</option>
+							<option value="HK">Hong Kong</option>
+							<option value="HU">Hungary</option>
+							<option value="IS">Iceland</option>
+							<option value="IN">India</option>
+							<option value="ID">Indonesia</option>
+							<option value="IA">Iran</option>
+							<option value="IQ">Iraq</option>
+							<option value="IR">Ireland</option>
+							<option value="IM">Isle of Man</option>
+							<option value="IL">Israel</option>
+							<option value="IT">Italy</option>
+							<option value="JM">Jamaica</option>
+							<option value="JP">Japan</option>
+							<option value="JO">Jordan</option>
+							<option value="KZ">Kazakhstan</option>
+							<option value="KE">Kenya</option>
+							<option value="KI">Kiribati</option>
+							<option value="NK">Korea North</option>
+							<option value="KS">Korea South</option>
+							<option value="KW">Kuwait</option>
+							<option value="KG">Kyrgyzstan</option>
+							<option value="LA">Laos</option>
+							<option value="LV">Latvia</option>
+							<option value="LB">Lebanon</option>
+							<option value="LS">Lesotho</option>
+							<option value="LR">Liberia</option>
+							<option value="LY">Libya</option>
+							<option value="LI">Liechtenstein</option>
+							<option value="LT">Lithuania</option>
+							<option value="LU">Luxembourg</option>
+							<option value="MO">Macau</option>
+							<option value="MK">Macedonia</option>
+							<option value="MG">Madagascar</option>
+							<option value="MY">Malaysia</option>
+							<option value="MW">Malawi</option>
+							<option value="MV">Maldives</option>
+							<option value="ML">Mali</option>
+							<option value="MT">Malta</option>
+							<option value="MH">Marshall Islands</option>
+							<option value="MQ">Martinique</option>
+							<option value="MR">Mauritania</option>
+							<option value="MU">Mauritius</option>
+							<option value="ME">Mayotte</option>
+							<option value="MX">Mexico</option>
+							<option value="MI">Midway Islands</option>
+							<option value="MD">Moldova</option>
+							<option value="MC">Monaco</option>
+							<option value="MN">Mongolia</option>
+							<option value="MS">Montserrat</option>
+							<option value="MA">Morocco</option>
+							<option value="MZ">Mozambique</option>
+							<option value="MM">Myanmar</option>
+							<option value="NA">Nambia</option>
+							<option value="NU">Nauru</option>
+							<option value="NP">Nepal</option>
+							<option value="AN">Netherland Antilles</option>
+							<option value="NL">Netherlands (Holland, Europe)</option>
+							<option value="NV">Nevis</option>
+							<option value="NC">New Caledonia</option>
+							<option value="NZ">New Zealand</option>
+							<option value="NI">Nicaragua</option>
+							<option value="NE">Niger</option>
+							<option value="NG">Nigeria</option>
+							<option value="NW">Niue</option>
+							<option value="NF">Norfolk Island</option>
+							<option value="NO">Norway</option>
+							<option value="OM">Oman</option>
+							<option value="PK">Pakistan</option>
+							<option value="PW">Palau Island</option>
+							<option value="PS">Palestine</option>
+							<option value="PA">Panama</option>
+							<option value="PG">Papua New Guinea</option>
+							<option value="PY">Paraguay</option>
+							<option value="PE">Peru</option>
+							<option value="PH">Philippines</option>
+							<option value="PO">Pitcairn Island</option>
+							<option value="PL">Poland</option>
+							<option value="PT">Portugal</option>
+							<option value="PR">Puerto Rico</option>
+							<option value="QA">Qatar</option>
+							<option value="ME">Republic of Montenegro</option>
+							<option value="RS">Republic of Serbia</option>
+							<option value="RE">Reunion</option>
+							<option value="RO">Romania</option>
+							<option value="RU">Russia</option>
+							<option value="RW">Rwanda</option>
+							<option value="NT">St Barthelemy</option>
+							<option value="EU">St Eustatius</option>
+							<option value="HE">St Helena</option>
+							<option value="KN">St Kitts-Nevis</option>
+							<option value="LC">St Lucia</option>
+							<option value="MB">St Maarten</option>
+							<option value="PM">St Pierre &amp; Miquelon</option>
+							<option value="VC">St Vincent &amp; Grenadines</option>
+							<option value="SP">Saipan</option>
+							<option value="SO">Samoa</option>
+							<option value="AS">Samoa American</option>
+							<option value="SM">San Marino</option>
+							<option value="ST">Sao Tome &amp; Principe</option>
+							<option value="SA">Saudi Arabia</option>
+							<option value="SN">Senegal</option>
+							<option value="RS">Serbia</option>
+							<option value="SC">Seychelles</option>
+							<option value="SL">Sierra Leone</option>
+							<option value="SG">Singapore</option>
+							<option value="SK">Slovakia</option>
+							<option value="SI">Slovenia</option>
+							<option value="SB">Solomon Islands</option>
+							<option value="OI">Somalia</option>
+							<option value="ZA">South Africa</option>
+							<option value="ES">Spain</option>
+							<option value="LK">Sri Lanka</option>
+							<option value="SD">Sudan</option>
+							<option value="SR">Suriname</option>
+							<option value="SZ">Swaziland</option>
+							<option value="SE">Sweden</option>
+							<option value="CH">Switzerland</option>
+							<option value="SY">Syria</option>
+							<option value="TA">Tahiti</option>
+							<option value="TW">Taiwan</option>
+							<option value="TJ">Tajikistan</option>
+							<option value="TZ">Tanzania</option>
+							<option value="TH">Thailand</option>
+							<option value="TG">Togo</option>
+							<option value="TK">Tokelau</option>
+							<option value="TO">Tonga</option>
+							<option value="TT">Trinidad &amp; Tobago</option>
+							<option value="TN">Tunisia</option>
+							<option value="TR">Turkey</option>
+							<option value="TU">Turkmenistan</option>
+							<option value="TC">Turks &amp; Caicos Is</option>
+							<option value="TV">Tuvalu</option>
+							<option value="UG">Uganda</option>
+							<option value="UA">Ukraine</option>
+							<option value="AE">United Arab Emirates</option>
+							<option value="GB">United Kingdom</option>
+							<option value="US" selected>United States of America</option>
+							<option value="UY">Uruguay</option>
+							<option value="UZ">Uzbekistan</option>
+							<option value="VU">Vanuatu</option>
+							<option value="VS">Vatican City State</option>
+							<option value="VE">Venezuela</option>
+							<option value="VN">Vietnam</option>
+							<option value="VB">Virgin Islands (Brit)</option>
+							<option value="VA">Virgin Islands (USA)</option>
+							<option value="WK">Wake Island</option>
+							<option value="WF">Wallis &amp; Futana Is</option>
+							<option value="YE">Yemen</option>
+							<option value="ZR">Zaire</option>
+							<option value="ZM">Zambia</option>
+							<option value="ZW">Zimbabwe</option>
+						</select>
+						
+						<label for="phone">Phone</label>
+						<input name="Phone Number" id="phone" type="tel" size="40" />
+					
+						<label for="fax">Fax</label>
+						<input name="Fax Number" id="fax" type="tel" size="40" />
+						
+						<input type="checkbox" name ="mailinglist" id="mailinglist" value="mailinglist" checked class="cc_input"/>
+						<label for="mailinglist" class="cc_label">Check here to be included on our mailing list</label>
+					</fieldset>
+					
+					<fieldset id="paymentinfo">
+						<legend>Credit Card Information</legend>
+							          <input type="radio" name="cc" id="visa" value="Visa" class="cc_input" />
+									  <label for="visa" class="cc_label">Visa</label>
+									  
+									  <input type="radio" name="cc" id="americanexpress" value="American Express" class="cc_input"/>
+									  <label for="americanexpress" class="cc_label">American Express</label>
+									  
+									  <input type="radio" name="cc" id="mastercard" value="Mastercard" class="cc_input"/>
+									  <label for="mastercard" class="cc_label">Mastercard</label>
+									  
+									  <input type="radio" name="cc" id="discover" value="Discover" class="cc_input"/>
+									  <label for="discover" class="cc_label">Discover</label>
+					</fieldset>
+					
+					<fieldset id="cardinfo">
+						<legend>Enter Card Number and Expiration Date</legend>
+						
+						<label for="ccnumber">Credit Card Number</label>
+						<input name="ccnumber" id="ccnumber" size="20" />
+						
+						<label for="expyear">Expiration Year</label>
+						<select name="expyear" id="expyear" >
+							<option value="08">2008</option>
+							<option value="09">2009</option>
+							<option value="10">2010</option>
+							<option value="11">2011</option>
+							<option value="12">2012</option>
+							<option value="13" selected>2013</option>
+						</select>
+						
+						<label for="expmonth">Expiration Month</label>
+						<select name="expmonth" id="expmonth" >
+							<option value="1">January</option>
+							<option value="2">February</option>
+							<option value="3">March</option>
+							<option value="4">April</option>
+							<option value="5">May</option>
+							<option value="6">June</option>
+							<option value="7">July</option>
+							<option value="8">August</option>
+							<option value="9">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+					</fieldset>
+						
+						
+						<p>
+							<input type="submit" value="Review Cart" onclick = "return reviewCart ()" />
+							<input type="submit" value="Submit" />
+							<input type="reset" value="Cancel" />
+						</p>
+					
+				</form>
+				
+			</div>
+		</section>
+
+		<footer>
+		</footer>
+
+	</body>
+
+</html>

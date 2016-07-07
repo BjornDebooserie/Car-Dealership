@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--
+			Author: Bjorn Debooserie
+		-->
+		<meta charset="UTF-8" />
+		<meta name="author" content="Bjorn" />
+		<meta name="description" content="Bjorn's Used Cars" />
+		<meta name="keywords" content="Bjorn, Used, Cars" />
+      
+		<title>Bjorn's Used Cars</title>
+     
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+		
+		<script type = "text/javascript">
+			// This function makes a cookie when pressing the "Add to Cart" button and prints out a thank you note to the customer
+			function addItem ()
+			{		
+				document.cookie = "Maxima=" + encodeURIComponent("3900");
+
+				document.writeln("<p style=\"color: #ff3300; font-size: 3em; text-align: center;\">Thank you for ordering the Nissan Maxima!</p>");
+				document.writeln("<p style=\"color: blue; font-size: 18pt; font-weight: bold; text-align: center;\">You may either continue shopping or go to checkout.</p>");
+				document.writeln("<table width=\"50%\"><tr><td><a href=\"index.html\">Continue Shopping</a></td><td><a href=\"checkout.html\">Go to Checkout</a></td></tr></table>");
+				return false;     
+			}
+		</script>		
+	</head>
+	
+	<body>
+	
+		<header>
+			<a href="index.html"><img src="images/header.png" alt="Bjorn's Used Cars"></a>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="dodge.html">Dodge</a></li>
+				<li><a href="ford.html">Ford</a></li>
+				<li><a href="honda.html">Honda</a></li>
+				<li><a href="nissan.html">Nissan</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+				<li><a href="checkout.html">Check Out</a></li>
+			</ul>
+		</nav>
+
+		<section>			
+			<div>
+				<img class="solid centeredImage" src="images/nissan/nissan002.jpg" alt="Nissan Maxima"></a>
+				<h2>Nissan Maxima</h2>
+				<p class="item">Its overall condition is excellent and only has had standard maintenance. Leather, air conditioning, power everything (windows, locks, mirrors and seats), sunroof, seat heater, new front tires, cruise, CD player. 3.0L V6 4-speed Automatic, Mileage 42,900.</p>
+				<p class="price">$3,900.00</p>
+				<button type="button" id="center" class="cartpic" onclick="addItem ()"></button><br/>
+				<a href="index.html"><p id="center">Continue Shopping!</p></a>
+			</div>		
+		</section>
+
+		<footer>
+		</footer>
+
+	</body>
+
+</html>

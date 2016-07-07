@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--
+			Author: Bjorn Debooserie
+		-->
+		<meta charset="UTF-8" />
+		<meta name="author" content="Bjorn" />
+		<meta name="description" content="Bjorn's Used Cars" />
+		<meta name="keywords" content="Bjorn, Used, Cars" />
+      
+		<title>Bjorn's Used Cars</title>
+     
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+		
+		<script type = "text/javascript">
+			// This function makes a cookie when pressing the "Add to Cart" button and prints out a thank you note to the customer
+			function addItem ()
+			{		
+				document.cookie = "Accord=" + encodeURIComponent("8995");
+
+				document.writeln("<p style=\"color: #ff3300; font-size: 3em; text-align: center;\">Thank you for ordering the Honda Accord LX!</p>");
+				document.writeln("<p style=\"color: blue; font-size: 18pt; font-weight: bold; text-align: center;\">You may either continue shopping or go to checkout.</p>");
+				document.writeln("<table width=\"50%\"><tr><td><a href=\"index.html\">Continue Shopping</a></td><td><a href=\"checkout.html\">Go to Checkout</a></td></tr></table>");
+				return false;     
+			}
+		</script>		
+	</head>
+	
+	<body>
+	
+		<header>
+			<a href="index.html"><img src="images/header.png" alt="Bjorn's Used Cars"></a>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="dodge.html">Dodge</a></li>
+				<li><a href="ford.html">Ford</a></li>
+				<li><a href="honda.html">Honda</a></li>
+				<li><a href="nissan.html">Nissan</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+				<li><a href="checkout.html">Check Out</a></li>
+			</ul>
+		</nav>
+
+		<section>			
+			<div>
+				<img class="solid centeredImage" src="images/honda/honda001.jpg" alt="2005 Honda Accord LX"></a>
+				<h2>2005 Honda Accord LX</h2>
+				<p class="item">This Honda Accord has a great looking exterior. 1st and 2nd row curtain head airbags, 4-wheel ABS Brakes, AM/FM stereo, Bucket front seats, Cargo area light. Center Console: Full with covered storage  Mileage: 128,529, Body Style: Sedan, Exterior Color: Blue, Interior Color: Gray, Engine: 2.4L I4 16V MPFI DOHC, Transmission: 5-Speed Automatic, Drivetrain: FWD</p>
+				<p class="price">$8,995.00</p>
+				<button type="button" id="center" class="cartpic" onclick="addItem ()"></button><br/>
+				<a href="index.html"><p id="center">Continue Shopping!</p></a>
+			</div>		
+		</section>
+
+		<footer>
+		</footer>
+
+	</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--
+			Author: Bjorn Debooserie
+		-->
+		<meta charset="UTF-8" />
+		<meta name="author" content="Bjorn" />
+		<meta name="description" content="Bjorn's Used Cars" />
+		<meta name="keywords" content="Bjorn, Used, Cars" />
+      
+		<title>Bjorn's Used Cars</title>
+     
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+		
+		<script type = "text/javascript">
+			// This function makes a cookie when pressing the "Add to Cart" button and prints out a thank you note to the customer
+			function addItem ()
+			{		
+				document.cookie = "Taurus=" + encodeURIComponent("4500");
+
+				document.writeln("<p style=\"color: #ff3300; font-size: 3em; text-align: center;\">Thank you for ordering the Ford Taurus SE!</p>");
+				document.writeln("<p style=\"color: blue; font-size: 18pt; font-weight: bold; text-align: center;\">You may either continue shopping or go to checkout.</p>");
+				document.writeln("<table width=\"50%\"><tr><td><a href=\"index.html\">Continue Shopping</a></td><td><a href=\"checkout.html\">Go to Checkout</a></td></tr></table>");
+				return false;     
+			}
+		</script>		
+	</head>
+	
+	<body>
+	
+		<header>
+			<a href="index.html"><img src="images/header.png" alt="Bjorn's Used Cars"></a>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="dodge.html">Dodge</a></li>
+				<li><a href="ford.html">Ford</a></li>
+				<li><a href="honda.html">Honda</a></li>
+				<li><a href="nissan.html">Nissan</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+				<li><a href="checkout.html">Check Out</a></li>
+			</ul>
+		</nav>
+
+		<section>			
+			<div>
+				<img class="solid centeredImage" src="images/ford/ford002.jpg" alt="1990 Ford Tauras SE"></a>
+				<h2>1990 Ford Tauras SE</h2>
+				<p class="item">This vehicles has the most recent service records as well as clean title and has been mechanically inspected and detailed before going out for sale. This Taurus SE '99 comes also equipped with all the options such as: power sunroof, aluminum wheels, rear spoiler, power windows, locks and mirrors, power driver seat, premium sound system with CD changer, leather seats, tires in great condition, fog lights, etc. Some rust and needs some minor paint body work as well. Its overall interior condition is immaculate. Body Style: Sedan, Year: 1999, Mileage: 137,200, Transmission: Automatic 4 speed, Engine: 3.0L, Drivetrain: FWD - Front Wheel Drive</p>
+				<p class="price">$4,500.00</p>
+				<button type="button" id="center" class="cartpic" onclick="addItem ()"></button><br/>
+				<a href="index.html"><p id="center">Continue Shopping!</p></a>
+			</div>		
+		</section>
+
+		<footer>
+		</footer>
+
+	</body>
+
+</html>
